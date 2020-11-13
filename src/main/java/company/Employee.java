@@ -1,4 +1,6 @@
 package company;
+import visistor.Visitor;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +105,18 @@ public class Employee {
 
   public List<Employee> getEmployees() {
     return new ArrayList<>();
+  }
+
+  public void accept(Visitor v) {
+    v.visit(this);
+  }
+
+  public double getTotalAnnualSalary() {
+    return 12*salary;
+  }
+
+  public double getTotalAnnualBudget() {
+    return this.getTotalAnnualSalary() + 0;
   }
 
   @Override

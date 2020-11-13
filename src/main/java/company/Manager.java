@@ -9,17 +9,11 @@ public class Manager extends Employee {
   private double teamBudget;
   private List<Employee> employees = new ArrayList<>();
 
-  public Manager(String employeeId, String firstName, String lastName, LocalDate birthDate) {
+  public Manager(String employeeId, String firstName, String lastName, LocalDate birthDate, double bonus, double teamBudget) {
     super(employeeId, firstName, lastName, birthDate);
     this.setPosition("Manager");
-  }
-
-  public void setBonus(double bonus) {
-    bonus = bonus;
-  }
-
-  public void setTeamBudget(double teamBudget) {
-    teamBudget = teamBudget;
+    this.bonus = bonus;
+    this.teamBudget = teamBudget;
   }
 
   public void addEmployee(Employee e) {
@@ -40,5 +34,13 @@ public class Manager extends Employee {
       }
     }
     return employees;
+  }
+
+  public double getTotalAnnualSalary() {
+    return 12*this.getSalary() + bonus;
+  }
+
+  public double getTotalAnnualBudget() {
+    return this.getTotalAnnualSalary() + teamBudget;
   }
 }

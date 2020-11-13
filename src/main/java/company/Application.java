@@ -1,14 +1,18 @@
 package company;
 
+import visistor.TotalAnnualBudgetVisitor;
+import visistor.TotalAnnualSalaryVisitor;
+import visistor.TotalSalaryVisitor;
+
 import java.time.LocalDate;
 
 public class Application {
   public static void main(String[] args) {
-    Manager ceo = new Manager("001", "CEO", "A", LocalDate.of(1982, 12, 1));
+    Manager ceo = new Manager("001", "CEO", "A", LocalDate.of(1982, 12, 1), 2000, 200);
 
-    Manager m1 = new Manager("002", "Rock", "B", LocalDate.of(1988, 7, 16));
-    Manager m2 = new Manager("003", "Miller", "C", LocalDate.of(1989, 2, 15));
-    Manager m3 = new Manager("004", "Marry", "D", LocalDate.of(1987, 1, 3));
+    Manager m1 = new Manager("002", "Rock", "B", LocalDate.of(1988, 7, 16), 1000, 100);
+    Manager m2 = new Manager("003", "Miller", "C", LocalDate.of(1989, 2, 15), 800, 80);
+    Manager m3 = new Manager("004", "Marry", "D", LocalDate.of(1987, 1, 3), 920, 92);
 
     Employee e1 = new Employee("005", "Tom", "E", LocalDate.of(1984, 10, 28));
     Employee e2 = new Employee("006", "Peter", "F", LocalDate.of(1994, 8, 8));
@@ -33,7 +37,10 @@ public class Application {
     System.out.println("Problem2 - get Employees from Manager");
     System.out.println(m1.getAllEmployeeByManager() + "\n");
     System.out.println("Problem3 - get getTotalSalary from Manager");
+    System.out.println(new TotalSalaryVisitor().visit(m1) + "\n");
     System.out.println("Problem4 - get getTotalAnnualSalary from Manager");
+    System.out.println(new TotalAnnualSalaryVisitor().visit(m1) + "\n");
     System.out.println("Problem5 - get getTotalAnnualBudget from Manager");
+    System.out.println(new TotalAnnualBudgetVisitor().visit(m1) + "\n");
   }
 }
