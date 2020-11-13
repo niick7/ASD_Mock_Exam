@@ -1,5 +1,7 @@
 package company;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
   private String employeeId;
@@ -86,6 +88,17 @@ public class Employee {
   }
 
   public Manager getManager() { return manager; }
+
+  public List<Manager> getManagers() {
+    List<Manager> managers = new ArrayList<>();
+    Manager manager = this.getManager();
+    while(manager != null) {
+      managers.add(manager);
+      manager = manager.getManager();
+    }
+
+    return managers;
+  }
 
   @Override
   public String toString() {

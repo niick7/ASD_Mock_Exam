@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Application {
   public static void main(String[] args) {
-    System.out.println("Updating...");
     Manager ceo = new Manager("001", "CEO", "A", LocalDate.of(1982, 12, 1), null);
 
     Manager m1 = new Manager("002", "Rock", "B", LocalDate.of(1988, 7, 16), ceo);
@@ -18,7 +17,11 @@ public class Application {
     Employee e5 = new Employee("009", "DJ", "I", LocalDate.of(1989, 3, 12), m2);
     Employee e6 = new Employee("010", "Gratify", "J", LocalDate.of(1995, 5, 18), m3);
 
-    // Problem 1: getManagers from Employee
-    System.out.println(new GetManagersFromEmployee(e5).getManagers());
+    System.out.println("Problem1 - get Managers from Employee");
+    System.out.println(e5.getManagers() + "\n");
+    System.out.println("Problem2 - get Employees from Manager");
+    System.out.println("Problem3 - get getTotalSalary from Manager");
+    System.out.println("Problem4 - get getTotalAnnualSalary from Manager");
+    System.out.println("Problem5 - get getTotalAnnualBudget from Manager");
   }
 }
