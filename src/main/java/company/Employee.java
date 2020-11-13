@@ -1,7 +1,5 @@
 package company;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Employee {
   private String employeeId;
@@ -15,9 +13,9 @@ public class Employee {
   private Double salary;
   private String position;
 
-  private List<Employee> managers = new ArrayList<>();
+  private Manager manager;
 
-  public Employee(String employeeId, String firstName, String lastName, LocalDate birthDate) {
+  public Employee(String employeeId, String firstName, String lastName, LocalDate birthDate, Manager manager) {
     super();
     this.employeeId = employeeId;
     this.firstName = firstName;
@@ -28,6 +26,7 @@ public class Employee {
     this.startDate = LocalDate.now();
     this.salary = 4500.0;
     this.position = "Employee";
+    this.manager = manager;
   }
 
   public String getEmployeeId() {
@@ -86,10 +85,20 @@ public class Employee {
     this.position = position;
   }
 
-  public void addManager(Manager m) { this.managers.add(m); }
+  public Manager getManager() { return manager; }
 
-  public List<Employee> getManagers(Visitor<Employee> v) {
-    return managers;
+  @Override
+  public String toString() {
+    return "Employee{" +
+      "employeeId='" + employeeId + '\'' +
+      ", firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", birthDate=" + birthDate +
+      ", startDate=" + startDate +
+      ", salary=" + salary +
+      ", position='" + position + '\'' +
+//      ", manager=" + manager +
+      '}';
   }
 }
 
