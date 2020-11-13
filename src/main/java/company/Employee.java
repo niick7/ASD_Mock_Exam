@@ -17,7 +17,7 @@ public class Employee {
 
   private Manager manager;
 
-  public Employee(String employeeId, String firstName, String lastName, LocalDate birthDate, Manager manager) {
+  public Employee(String employeeId, String firstName, String lastName, LocalDate birthDate) {
     super();
     this.employeeId = employeeId;
     this.firstName = firstName;
@@ -28,7 +28,6 @@ public class Employee {
     this.startDate = LocalDate.now();
     this.salary = 4500.0;
     this.position = "Employee";
-    this.manager = manager;
   }
 
   public String getEmployeeId() {
@@ -87,6 +86,8 @@ public class Employee {
     this.position = position;
   }
 
+  public void setManager(Manager manager) { this.manager = manager; }
+
   public Manager getManager() { return manager; }
 
   public List<Manager> getManagers() {
@@ -98,6 +99,10 @@ public class Employee {
     }
 
     return managers;
+  }
+
+  public List<Employee> getEmployees() {
+    return new ArrayList<>();
   }
 
   @Override
