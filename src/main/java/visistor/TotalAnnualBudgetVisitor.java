@@ -1,7 +1,7 @@
 package visistor;
 
-import company.Employee;
-import company.Manager;
+import mock.Employee;
+import mock.Manager;
 
 import java.util.List;
 

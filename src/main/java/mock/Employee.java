@@ -1,4 +1,4 @@
-package company;
+package mock;
 import visistor.Visitor;
 
 import java.time.LocalDate;

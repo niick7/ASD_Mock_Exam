@@ -1,6 +1,6 @@
 package visistor;
 
-import company.Employee;
+import mock.Employee;
 
 public interface Visitor {
   abstract double visit(Employee employee);
