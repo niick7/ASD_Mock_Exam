@@ -1,5 +1,7 @@
 package company;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
   private String employeeId;
@@ -12,6 +14,8 @@ public class Employee {
 
   private Double salary;
   private String position;
+
+  private List<Employee> managers = new ArrayList<>();
 
   public Employee(String employeeId, String firstName, String lastName, LocalDate birthDate) {
     super();
@@ -82,5 +86,10 @@ public class Employee {
     this.position = position;
   }
 
+  public void addManager(Manager m) { this.managers.add(m); }
+
+  public List<Employee> getManagers(Visitor<Employee> v) {
+    return managers;
+  }
 }
 
